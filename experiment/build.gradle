@@ -1,0 +1,31 @@
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+version = '1.0'
+
+mainClassName = "memcached_sdn.experiment.Main"
+applicationDefaultJvmArgs = []
+
+allprojects {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'net.sf.jopt-simple:jopt-simple:4.9'
+    compile 'net.spy:spymemcached:2.9.1'
+    compile 'com.google.guava:guava:19.0'
+    compile group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+    testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
